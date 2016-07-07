@@ -6,6 +6,8 @@ PuppetLint.new_check(:explicit_hiera_class_param_lookup) do
         t.type == :NAME and t.value == 'hiera'
       }.each do |token|
 
+        next unless token.next_code_token.type == :LPAREN
+
         hiera_key = token.next_code_token.next_code_token
 
         notify :error, {
