@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-explicit_hiera_class_param_lookup-check'
-  spec.version     = '0.1.0'
+  spec.version     = '0.1.1'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-explicit_hiera_class_param_lookup-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
@@ -18,11 +18,11 @@ Gem::Specification.new do |spec|
     in the class parameters.
   EOF
 
-  spec.add_dependency             'puppet-lint', '~> 1.1'
+  spec.add_dependency             'puppet-lint', '>= 1.1', '< 3.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop', '~> 0.36.0'
 end
