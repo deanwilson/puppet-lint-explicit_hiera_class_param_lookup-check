@@ -3,7 +3,7 @@ PuppetLint.new_check(:explicit_hiera_class_param_lookup) do
     class_indexes.each do |class_idx|
 
       class_idx[:param_tokens].select { |t|
-        t.type == :NAME and t.value == 'hiera'
+        (t.type == :NAME or t.type == :FUNCTION_NAME) and t.value == 'hiera'
       }.each do |token|
 
         next unless token.next_code_token.type == :LPAREN
