@@ -2,6 +2,8 @@ PuppetLint.new_check(:explicit_hiera_class_param_lookup) do
   def check
     class_indexes.each do |class_idx|
 
+      next unless class_idx[:param_tokens].is_a? Array
+
       class_idx[:param_tokens].select { |t|
         (t.type == :NAME or t.type == :FUNCTION_NAME) and t.value == 'hiera'
       }.each do |token|
