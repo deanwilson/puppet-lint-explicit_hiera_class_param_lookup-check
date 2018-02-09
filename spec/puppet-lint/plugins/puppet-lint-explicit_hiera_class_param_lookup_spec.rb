@@ -45,4 +45,17 @@ describe 'explicit_hiera_class_param_lookup' do
     end
   end
 
+  ### Reported issues
+  context 'empty class with inherit and no explicit hiera() lookups' do
+    let(:code) do
+      <<-EOS
+        class ig::base::freebsd inherits ig::base { }
+      EOS
+    end
+
+    it 'should not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
 end
