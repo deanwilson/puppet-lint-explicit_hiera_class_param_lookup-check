@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 describe 'explicit_hiera_class_param_lookup' do
-
   context 'class with no explicit hiera() lookups' do
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class no_explicit_lookups(
           $my_content = undef
         ) {
@@ -12,7 +11,7 @@ describe 'explicit_hiera_class_param_lookup' do
             content => 'bar',
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should not detect any problems' do
@@ -20,12 +19,11 @@ describe 'explicit_hiera_class_param_lookup' do
     end
   end
 
-
   context 'class with an explicit hiera() lookup' do
-    let(:msg) { "explicit hiera() lookup of my::nested::key" }
+    let(:msg) { 'explicit hiera() lookup of my::nested::key' }
 
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class no_explicit_lookups(
           $my_content = hiera('my::nested::key', 'baz')
         ) {
@@ -33,7 +31,7 @@ describe 'explicit_hiera_class_param_lookup' do
             content => $my_content,
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should detect a single problem' do
@@ -48,14 +46,13 @@ describe 'explicit_hiera_class_param_lookup' do
   ### Reported issues
   context 'empty class with inherit and no explicit hiera() lookups' do
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class ig::base::freebsd inherits ig::base { }
-      EOS
+      TEST_CLASS
     end
 
     it 'should not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
-
 end
