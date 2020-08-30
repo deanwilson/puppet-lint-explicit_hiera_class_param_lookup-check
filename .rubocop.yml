@@ -1,3 +1,6 @@
+require:
+  - rubocop-rspec
+
 AllCops:
   NewCops: enable
 
@@ -22,3 +25,6 @@ Metrics/AbcSize:
 
 Metrics/CyclomaticComplexity:
   Max: 10
+
+RSpec/DescribeClass:
+  Enabled: false
