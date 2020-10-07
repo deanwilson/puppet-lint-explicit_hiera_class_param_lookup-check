@@ -3,7 +3,7 @@
 Extends puppet-lint to ensure there are no explicit calls to hiera()
 in the class parameters.
 
-[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-explicit_hiera_class_param_lookup-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-explicit_hiera_class_param_lookup-check)
+[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-explicit_hiera_class_param_lookup-check.svg?branch=main)](https://travis-ci.org/deanwilson/puppet-lint-explicit_hiera_class_param_lookup-check)
 
 In our code base we would rather have a class lookup values for its
 parameters using Puppets automatic data binding functionality rather than
